@@ -22,7 +22,7 @@ class LoanAdmin(admin.ModelAdmin):
     )
 
     def get_employee_photo(self, obj):
-        return mark_safe(f'<img src="{obj.employee.photo.url}" width="50" height="50" />')
+        return mark_safe(f'<img src="{obj.employee.photo.url}" width="40" height="40" style="border-radius: 50%;" />')
     get_employee_photo.short_description = 'Photo'
 
     def employee_name(self, obj):
