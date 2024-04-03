@@ -27,6 +27,9 @@ class SalaryGrade(models.Model):
     gradeID = models.AutoField(primary_key=True)
     gradeTitle = models.CharField(max_length=100, verbose_name="বেতন স্কেল")
 
+    def __str__(self):
+        return self.gradeTitle
+
 class Employee(models.Model):
     employeeID = models.AutoField(primary_key=True)
     employeeName = models.CharField(max_length=100, verbose_name="নাম")
@@ -49,3 +52,6 @@ class Employee(models.Model):
     cpfPercent = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="সিপিএফ শতকরা")
     displayOrder = models.IntegerField(verbose_name="ডিসপ্লে অর্ডার")
     employmentStatus = models.IntegerField(choices=((1, 'চাকরিজীবী'), (2, 'পিআরএল'), (3, 'অবসরপ্রাপ্ত'), (0, 'নিষ্ক্রিয়')), verbose_name="কর্মসংস্থানের অবস্থা")
+
+    def __str__(self):
+        return self.employeeName
